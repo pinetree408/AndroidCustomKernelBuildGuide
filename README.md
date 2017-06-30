@@ -25,8 +25,11 @@ git clone -b android-msm-bass-3.10-lollipop-mr1-wear-release https://android.goo
 ```
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8
 ```
+
 Find a toolchain matching with your device's architecture & gcc ver. (e.g. arm-eabi-4.8)
+
 Read below for information about toolchain.
+
 https://developer.android.com/ndk/guides/standalone_toolchain.html
 
 ### Run scripts
@@ -39,6 +42,7 @@ Match the directory and ARCH with yours.
 
 ## After Build
 you can find the build image(zImage) at arch/arm/boot/zImage-dtb
+
 '''
 cp {kernel_folder}/arch/arm/boot/zImage-dtb kernel
 '''
@@ -71,10 +75,12 @@ Change kernel with your custom kernel
 mkbootimg --base 0 --pagesize 2048 --kernel_offset 0x80208000 --ramdisk_offset 0x82200000 --second_offset 0x81100000 --tags_offset 0x80200100 --cmdline 'console=ttyHSL0,115200,n8 androidboot.hardware=flo user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3' --kernel {mykernel} --ramdisk ramdisk.cpio.gz -o myboot.img
 ```
 
-Just copy&paste from unmkbootimg result and you could change new boot img file's name if you want. In this case, myboot.img
+Just copy&paste from unmkbootimg result and you could change new boot img file's name if you want.
+
+In this case, myboot.img
 
 ## Set your myboot.img at SmartWatch
-```
+'''
 adb reboot bootloader
 '''
 
