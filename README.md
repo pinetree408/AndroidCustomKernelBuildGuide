@@ -43,9 +43,9 @@ Match the directory and ARCH with yours.
 ## After Build
 you can find the build image(zImage) at arch/arm/boot/zImage-dtb
 
-'''
+```
 cp {kernel_folder}/arch/arm/boot/zImage-dtb kernel
-'''
+```
 
 ### Change kernel to boot img
 Download pure boot img at https://forum.xda-developers.com/g-watch/general/download-android-wear-update-m1d65b-to-t3557849
@@ -80,18 +80,18 @@ Just copy&paste from unmkbootimg result and you could change new boot img file's
 In this case, myboot.img
 
 ## Set your myboot.img at SmartWatch
-'''
+```
 adb reboot bootloader
-'''
+```
 
 Type below if device is locked
 
-'''
+```
 fastboot oem unlock
-'''
+```
 
 Boot with your image
 
-'''
+```
 fastboot boot myboot.img
 ```
